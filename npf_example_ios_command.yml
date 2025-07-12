@@ -1,0 +1,17 @@
+---
+- hosts: ios
+  connection: network_cli
+  gather_facts: yes
+
+  tasks:
+    - name: Collecting Operation Information from '{{ ansible_network_os }}'
+      ios_command:
+        commands:
+          - show inventory
+          - show ip interface brief
+      register: ios_output
+
+    - name: Verification of the output
+      debug:
+        msg: "{{ ios_output.stdout_lines }}"
+...

@@ -1,0 +1,20 @@
+---
+- name: Clear interface counters on IOS device
+  hosts: ios
+  connection: network_cli
+  gather_facts: no
+
+  tasks:
+    - name: Clear interface counters with prompt handling
+      ios_command:
+        commands:
+          - command: show interfaces FastEthernet0/0 | include packets
+          - command: clear counters FastEthernet0/0
+            prompt: '[confirm]'
+            answer: "\r"
+          - command: show interfaces FastEthernet0/0 | include packets
+      register: ios_output
+
+    - name: Verification of the output
+      debug:
+        msg: "{{ ios_output.stdout_lines }}"
