@@ -4,9 +4,7 @@ The automation in this repo is being built and tested using the topology shown b
 
 While automation scripts for all devices are not yet implemented, this layout guides the structure and testing of each playbook over time.
 
-<p align="center">
-  <img src="[assets/ansible_network_topology.png](https://github.com/dubeysatyam15/automate-with-ansible/blob/main/ansible_network_topology.png)" alt="Ansible Network Topology" width="700"/>
-</p>
+[Network Topology](https://github.com/dubeysatyam15/automate-with-ansible/blob/main/ansible_network_topology.png)
 
 ### 📐 Topology Overview
 
